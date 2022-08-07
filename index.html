@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/functions.css">
+    <link rel="stylesheet" href="css/question_box.css">
+
+    <!-- 비용 ',' 찍는 js -->
+    <script src="js/addcomma.js"></script>
+    <!-- 함수 구현 -->
+    <script src="js/T.js"></script>
+
+</head>
+
+<body>
+
+    <div class="box1">
+        <div class="box2">
+
+            <div id="title">
+                <h1 class="titleH">테러 유형을 선택하시오</h1>
+                <h3 class="titleH">Choose the type of terrorism</h3>
+            </div>
+
+            <div id="question">
+
+                <div id="question2">
+                    <div class="choose-show">
+                        <div class="box4">
+                            <input style="zoom:2" type="checkbox" onclick="fun1()"> 개인정보</input>
+                            <div class="choose-hide">
+                                <div id="list11" class="box4" style="display: none;">
+                                    <input id="bitcoin" style="zoom:2" type="checkbox" onclick="bitcoin()"> 가상화폐</input>
+                                </div>
+                                <div id="list12" class="box4" style="display: none;">
+                                    <input style="zoom:2" type="checkbox" onclick="privacy()"> 개인정보</input>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box4">
+                            <input style="zoom:2" type="checkbox" onclick="fun2()"> 테러</input>
+                            <div class="choose-hide">
+                                <div id="list21" class="box4" style="display: none;">
+                                    <input style="zoom:2" type="checkbox" onclick="system()"> 시스템</input>
+                                </div>
+                                <div id="list22" class="box4" style="display: none;">
+                                    <input style="zoom:2" type="checkbox" onclick="site()"> 사이트</input>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="submit">
+                <input style="zoom:2" type="button" value="확인버튼" onclick="submit()">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var clicked1 = 1;
+        var clicked2 = 1;
+
+        function fun1() {
+            clicked1 += 1;
+            if (clicked1 % 2 == 0) {
+                document.getElementById("list11").style.display = "block";
+                document.getElementById("list12").style.display = "block";
+            }
+            else {
+                document.getElementById("list11").style.display = "none";
+                document.getElementById("list12").style.display = "none";
+            }
+        }
+        function fun2() {
+            clicked2 += 1;
+            if (clicked2 % 2 == 0) {
+                document.getElementById("list21").style.display = "block";
+                document.getElementById("list22").style.display = "block";
+            }
+            else {
+                document.getElementById("list21").style.display = "none";
+                document.getElementById("list22").style.display = "none";
+            }
+        }
+    </script>
+    <script>
+
+        alert("다시 돌아온 경우 새로고침 하시오\n\n각종 자산별 경영 목표. 위협. 취약성관리의 보안통제. \n문제가 발생 경우 손실 등의 정보가 \n인과관계로서 발생하는 것을 증명하기 위해 도구를 제작 \n\n제작자 - 이희승");
+
+        // 가상화폐
+        var bitcoin_check = 0;
+        function bitcoin() {
+            if(bitcoin_check==0){
+                bitcoin_check = 1;
+            }
+            else{
+                bitcoin_check = 0;
+            }
+            return bitcoin_check;
+        }
+
+        // 개인정보
+        var privacy_check = 0;
+        function privacy() {
+            if(privacy_check==0){
+                privacy_check = 1;
+            }
+            else{
+                privacy_check = 0;
+            }
+            return privacy_check;
+        }
+
+        // 시스템
+        var system_check = 0;
+        function system() {
+            if(system_check==0){
+                system_check = 1;
+            }
+            else{
+                system_check = 0;
+            }
+            return system_check;
+        }
+
+        // 사이트
+        var site_check = 0;
+        function site() {
+            if(site_check==0){
+                site_check = 1;
+            }
+            else{
+                site_check = 0;
+            }
+            return site_check;
+        }
+
+
+        function submit() {
+            var data = bitcoin_check + '+' + privacy_check + '+' + system_check + '+' + site_check;
+
+            if (bitcoin_check != 0) {
+                window.open("html/pages/bitcoin/bitcoin_op.html?val=" + data, "_self");
+            }
+            else if (privacy_check != 0) {
+                window.open("html/pages/privacy/real_op.html?val=" + data, "_self");
+            }
+            else if (system_check != 0) {
+                window.open("html/pages/system/direct_op.html?val=" + data, "_self");
+            }
+            else if (site_check != 0) {
+                window.open("html/pages/site/site_op.html?val=" + data, "_self");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
